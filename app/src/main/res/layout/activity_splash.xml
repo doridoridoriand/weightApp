@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <View xmlns:android="http://schemas.android.com/apk/res/android"
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      android:background="@drawable/splash">
+      android:layout_width="100pt"
+      android:layout_height="100pt"
+      android:background="@drawable/splash_image">
 
 </View>
