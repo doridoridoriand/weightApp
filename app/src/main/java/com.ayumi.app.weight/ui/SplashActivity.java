@@ -18,6 +18,7 @@ public class SplashActivity extends Activity {
         new Handler().postDelayed(new Runnable() {
             @Override
         public void run() {
+                InputActivity.startActivity(InputActivity.this);
                 finish();
             }
         }, SPLASH_DISPLAY_TIME);
