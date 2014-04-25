@@ -1,4 +1,4 @@
-package ui;
+package com.ayumi.app.weight.ui;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
