@@ -11,21 +11,4 @@ import com.ayumi.app.weight.adapter.DBAdapter;
  */
 public class ItemListActivity {
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(android.R.layout.activity_list_item);
-        findViews();
-        setListeners();
-    }
-
-    DBAdapter mDBAdapter = new DBAdapter(this);
-    SQLiteDatabase db = mDBAdapter.getReadableDatabase();
-
-    private void readDB(SQLiteDatabase db, Cursor cursor) {
-        String str = new String();
-        cursor.moveToFirst();
-    }
-
-
 }

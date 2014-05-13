@@ -12,7 +12,8 @@ import java.util.Date;
  * Created by Dorian on 2014/04/25.
  */
 public class DBAdapter {
-    private final String DATABASE_NAME = "weight.db";
+
+    static final String DATABASE_NAME = "weight.db";
     static final int DATABASE_VERSION = 1;
 
     public static final String TABLE_NAME = "weights";
@@ -26,10 +27,10 @@ public class DBAdapter {
 
     public DBAdapter(Context context) {
         this.context = context;
-        dbHelper = new databaseHelper(this.context);
+        dbHelper = new DatabaseHelper(this.context);
     }
 
-    private static final databaseHelper extends SQLiteOpenHelper {
+    private static class DatabaseHelper extends SQLiteOpenHelper {
 
         public DatabaseHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -37,8 +38,21 @@ public class DBAdapter {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
+            String sqlstring = null;
+            StringBuilder sqlset = new StringBuilder();
 
-            db.execSQL("CREATE TABLE" + TABLE NAME + "(" + COL_ID + "INTEGER PRIMARY KEY AUTOINCREMENT," + COL_WEIGHT + "TEXT NOT NULL", + COL_LASTUPDATE + "TEXT NOT NULL);");
+            sqlset.append("CREATE TABLE ");
+            sqlset.append(TABLE_NAME);
+            sqlset.append(" ( ");
+            sqlset.append(COL_ID);
+            sqlset.append(" INTEGER PRIMARY KEY AUTOINCREMENT, ");
+            sqlset.append(COL_WEIGHT);
+            sqlset.append(" NOT NULL, ");
+            sqlset.append(COL_LASTUPDATE);
+            sqlset.append(" TEXT NOT NULL )");
+
+            sqlstring = sqlset.toString();
+            db.execSQL(sqlstring);
         }
 
         @Override
@@ -63,7 +77,7 @@ public class DBAdapter {
         return db.delete(TABLE_NAME, null, null) > 0;
     }
 
-    punlic Cursor getALLWEIGHT() {
+    public Cursor getALLWEIGHT() {
         return db.query(TABLE_NAME, null, null, null, null, null, null);
     }
 
@@ -71,6 +85,7 @@ public class DBAdapter {
             Date date = new Date();
         ContentValues values = new ContentValues();
         values.put(COL_WEIGHT, weight);
-        values.put(TABLE_NAME, null, values);
+        values.put(COL_LASTUPDATE, date.toLocaleString());
+        db.insert(TABLE_NAME, null, values);
     }
 }
