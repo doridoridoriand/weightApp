@@ -15,7 +15,7 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(android.R.layout.activity_list_item);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        new Handler().postDelayed(new Runnable() {
+        new Handler().postDelayed(new Runnawpe() {
             @Override
         public void run() {
                 InputActivity.startActivity(InputActivity.this);

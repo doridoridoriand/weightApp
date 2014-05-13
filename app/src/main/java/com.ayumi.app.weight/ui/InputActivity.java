@@ -3,10 +3,12 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.ayumi.app.weight.adapter.DBAdapter;
 import com.ayumi.app.weight.util.Weight;
@@ -26,7 +28,7 @@ public class InputActivity extends Activity implements View.OnClickListener {
     Button saveButton;
 
     static DBAdapter sDBAdapter;
-    static WeightListAdapter sWeightListAdapter;
+    //static WeightListAdapter sWeightListAdapter;
     static List<Weight> sWeightList = new ArrayList<Weight>();
 
     @Override
@@ -37,8 +39,8 @@ public class InputActivity extends Activity implements View.OnClickListener {
         setListeners();
 
         sDBAdapter = new DBAdapter(this);
-        sWeightListAdapter = new WeightListAdapter();
-        itemListView.setAdapter(sWeightListAdapter);
+        //sWeightListAdapter = new WeightListAdapter();
+        //itemListView.setAdapter(sWeightListAdapter);
 
         loadWeight();
     }
@@ -69,7 +71,7 @@ public class InputActivity extends Activity implements View.OnClickListener {
         stopManagingCursor(c);
         sDBAdapter.close();
 
-        sWeightListAdapter.notifyDataSetChanged();
+        //sWeightListAdapter.notifyDataSetChanged();
     }
 
     protected void saveItem() {
@@ -96,12 +98,12 @@ public class InputActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.btn_submit:
-                saveItem(0);
+                saveItem();
                 break;
         }
     }
 
-    private class WeightListAdapter extends BaseAdapter {
+    /*private class WeightListAdapter extends BaseAdapter {
 
         @Override
         public int getCount() {
@@ -117,6 +119,13 @@ public class InputActivity extends Activity implements View.OnClickListener {
         public long getItemId(int position) {
             return position;
         }
-    }
+
+        @Override
+        public View getView(int position, convertView, ViewGroup parent) {
+            TextView weightTextView;
+            TextView lastupdateTextView;
+             View v = convertView;
+        }
+    } */
 
 }
