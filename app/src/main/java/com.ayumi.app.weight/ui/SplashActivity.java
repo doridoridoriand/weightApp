@@ -1,6 +1,7 @@
 package com.ayumi.app.weight.ui;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -16,8 +17,8 @@ public class SplashActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
         public void run() {
-                InputActivity.startActivity(SplashActivity.this);
-                finish();
+                Intent intent = new Intent(SplashActivity.this, InputActivity.class);
+                startActivity(intent);
             }
         }, SPLASH_DISPLAY_TIME);
     }
