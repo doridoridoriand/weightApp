@@ -1,4 +1,5 @@
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -30,6 +31,12 @@ public class InputActivity extends Activity implements View.OnClickListener {
     static DBAdapter sDBAdapter;
     //static WeightListAdapter sWeightListAdapter;
     static List<Weight> sWeightList = new ArrayList<Weight>();
+
+    public static void startActivity(Activity activity) {
+        Intent intent = new Intent(activity, InputActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        activity.startActivity(intent);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
