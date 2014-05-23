@@ -9,12 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.ayumi.app.weight.adapter.DBAdapter;
 import com.ayumi.app.weight.util.Weight;
 import com.doriwo.yaseyouze.app.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -45,10 +48,13 @@ public class InputActivity extends Activity implements View.OnClickListener {
         setListeners();
 
         sDBAdapter = new DBAdapter(this);
-        //sWeightListAdapter = new WeightListAdapter();
-        //itemListView.setAdapter(sWeightListAdapter);
 
         loadWeight();
+
+        TextView dateText = (TextView)findViewById(R.id.input_activity_date);
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy"/"MM"/"dd");
+        dateText.setText(simpleDateFormat.format(date));
     }
 
     protected void findViews() {
@@ -109,29 +115,5 @@ public class InputActivity extends Activity implements View.OnClickListener {
         }
     }
 
-    /*private class WeightListAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            return sWeightList.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return sWeightList.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, convertView, ViewGroup parent) {
-            TextView weightTextView;
-            TextView lastupdateTextView;
-             View v = convertView;
-        }
-    } */
 
 }

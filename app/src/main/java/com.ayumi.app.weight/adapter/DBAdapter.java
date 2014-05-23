@@ -47,7 +47,7 @@ public class DBAdapter {
             sqlset.append(COL_ID);
             sqlset.append(" INTEGER PRIMARY KEY AUTOINCREMENT, ");
             sqlset.append(COL_WEIGHT);
-            sqlset.append(" NOT NULL, ");
+            sqlset.append(" INTEGER NOT NULL, ");
             sqlset.append(COL_LASTUPDATE);
             sqlset.append(" TEXT NOT NULL )");
 
