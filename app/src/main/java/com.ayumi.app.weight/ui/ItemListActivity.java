@@ -122,6 +122,5 @@ public class ItemListActivity extends Activity implements View.OnClickListener {
                 v.setTag(R.id.item_weight_text_view, weight);
             }
         }
-
     }
 }

@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends com.ayumi.app.weight.ui.BaseActivity {
 
     private final int SPLASH_DISPLAY_TIME = 500;
 
@@ -17,7 +17,7 @@ public class SplashActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
         public void run() {
-                Intent intent = new Intent(SplashActivity.this, InputActivity.class);
+                Intent intent = new Intent(SplashActivity.this, com.ayumi.app.weight.ui.InputActivity.class);
                 startActivity(intent);
             }
         }, SPLASH_DISPLAY_TIME);

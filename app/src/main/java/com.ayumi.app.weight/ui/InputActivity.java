@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.ayumi.app.weight.adapter.DBAdapter;
 import com.ayumi.app.weight.adapter.Weight;
@@ -31,7 +30,6 @@ public class InputActivity extends Activity implements View.OnClickListener {
     Button saveButton;
 
     static DBAdapter sDBAdapter;
-    //static WeightListAdapter sWeightListAdapter;
     static List<Weight> sWeightList = new ArrayList<Weight>();
 
     public static void startActivity(Activity activity) {
@@ -51,10 +49,10 @@ public class InputActivity extends Activity implements View.OnClickListener {
 
         loadWeight();
 
-        TextView dateText = (TextView)findViewById(R.id.input_activity_date);
-        Date date = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy'年'MM'月'dd'日' kk'時");
-        dateText.setText(simpleDateFormat.format(date));
+        //TextView dateText = (TextView)findViewById(R.id.input_activity_date);
+        //Date date = new Date();
+        //SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy'年'MM'月'dd'日' kk'時'");
+        //dateText.setText(simpleDateFormat.format(date));
     }
 
     protected void findViews() {
