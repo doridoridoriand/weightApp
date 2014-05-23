@@ -53,6 +53,10 @@ public class InputActivity extends Activity implements View.OnClickListener {
         //Date date = new Date();
         //SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy'年'MM'月'dd'日' kk'時'");
         //dateText.setText(simpleDateFormat.format(date));
+       // TextView dateText = (TextView)findViewById(R.id.input_activity_date);
+       // Date date = new Date();
+       // SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy'年'MM'月'dd'日'");
+       // dateText.setText(simpleDateFormat.format(date));
     }
 
     protected void findViews() {

@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * Created by rpd on 14/05/09.
  */
-public class ItemListActivity extends Activity implements View.OnClickListener {
+public class ItemListActivity extends Activity {
 
     static final String TAG = "WeightApp";
     static final int MENUITEM_ID_DELETE = 1;
@@ -121,6 +121,7 @@ public class ItemListActivity extends Activity implements View.OnClickListener {
                 lastupdateTextView.setText(weight.getLastupdate());
                 v.setTag(R.id.item_weight_text_view, weight);
             }
+            return v;
         }
     }
 }
