@@ -17,6 +17,9 @@ import com.ayumi.app.weight.adapter.DBAdapter;
 import com.ayumi.app.weight.adapter.Weight;
 import com.doriwo.yaseyouze.app.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by rpd on 14/05/09.
@@ -51,7 +54,7 @@ public class ItemListActivity extends Activity implements View.OnClickListener {
         loadWeight();
     }
 
-    protecwted void loadWeight() {
+    protected void loadWeight() {
         sWeightList.clear();
         sDBAdapter.open();
 
@@ -61,9 +64,9 @@ public class ItemListActivity extends Activity implements View.OnClickListener {
 
         if(c.moveToFirst()) {
             do {
-                com.ayumi.app.weight.util.Weight weight = new com.ayumi.app.weight.util.Weight(
+                Weight weight = new Weight(
                         c.getInt(c.getColumnIndex(DBAdapter.COL_ID)),
-                        c.getInt(c.getColumnIndex(DBAdapter.COL_WEIGHT)),
+                        c.getString(c.getColumnIndex(DBAdapter.COL_WEIGHT)),
                         c.getString(c.getColumnIndex(DBAdapter.COL_LASTUPDATE)));
             sWeightList.add(weight);
                 } while (c.moveToNext());
@@ -114,7 +117,9 @@ public class ItemListActivity extends Activity implements View.OnClickListener {
             if(weight != null) {
                 weightTextView = (TextView)v.findViewById(R.id.item_weight_text_view);
                 lastupdateTextView = (TextView)v.findViewById(R.id.item_date_text_view);
-                weightTextView.setText(weight.);
+                weightTextView.setText(weight.getweight());
+                lastupdateTextView.setText(weight.getLastupdate());
+                v.setTag(R.id.item_weight_text_view, weight);
             }
         }
 

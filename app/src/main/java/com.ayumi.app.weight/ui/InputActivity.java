@@ -12,7 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ayumi.app.weight.adapter.DBAdapter;
-import com.ayumi.app.weight.util.Weight;
+import com.ayumi.app.weight.adapter.Weight;
 import com.doriwo.yaseyouze.app.R;
 
 import java.text.SimpleDateFormat;
@@ -53,7 +53,7 @@ public class InputActivity extends Activity implements View.OnClickListener {
 
         TextView dateText = (TextView)findViewById(R.id.input_activity_date);
         Date date = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy"/"MM"/"dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy'年'MM'月'dd'日' kk'時");
         dateText.setText(simpleDateFormat.format(date));
     }
 
@@ -82,8 +82,6 @@ public class InputActivity extends Activity implements View.OnClickListener {
 
         stopManagingCursor(c);
         sDBAdapter.close();
-
-        //sWeightListAdapter.notifyDataSetChanged();
     }
 
     protected void saveItem() {
@@ -114,6 +112,4 @@ public class InputActivity extends Activity implements View.OnClickListener {
                 break;
         }
     }
-
-
 }

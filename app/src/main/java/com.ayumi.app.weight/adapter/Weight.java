@@ -1,4 +1,4 @@
-package com.ayumi.app.weight.util;
+package com.ayumi.app.weight.adapter;
 
 /**
  * Created by rpd on 14/05/13.
