@@ -1,4 +1,4 @@
-package com.doriwo.weightappandroid.ayumi;
+package com.doriwo.weightappandroid.ayumi.db;
 
 /**
  * Created by rpd on 14/05/30.
