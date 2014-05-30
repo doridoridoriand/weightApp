@@ -4,9 +4,12 @@ package com.doriwo.weightappandroid.ayumi.db;
  * Created by rpd on 14/05/30.
  */
 public class Weight {
-    protected int id;
-    protected String weight;
-    protected String lastupdate;
+    int id;
+    String weight;
+    String lastupdate;
+
+    public Weight() {
+    }
 
     public Weight(int id, String weight, String lastupdate) {
         this.id = id;
