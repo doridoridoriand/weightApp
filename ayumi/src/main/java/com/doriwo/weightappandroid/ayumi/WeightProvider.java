@@ -4,9 +4,12 @@ import android.content.ContentProvider;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.UriMatcher;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.doriwo.weightappandroid.ayumi.db.DBAdapter;
 
@@ -97,6 +100,52 @@ public class WeightProvider extends ContentProvider{
         }
         getContext().getContentResolver().notifyChange(uri, null);
         return count;
+    }
+
+    @Override
+    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+
+        SQLiteQueryBuilder sqLiteQueryBuilder = new SQLiteQueryBuilder();
+        sqLiteQueryBuilder.setTables(DBAdapter.TABLE_NAME);
+
+        Log.d("query", uri.toString());
+        switch (URI_MATCHER.match(uri)) {
+            case WEIGHT:
+                break;
+
+            case WEIGHT_ID:
+                sqLiteQueryBuilder.appendWhere(DBAdapter.DB_ID + "=" + uri.getPathSegments().get(1));
+                break;
+
+            default:
+                throw new IllegalArgumentException("Unknown URL" + uri);
+        }
+
+        String orderBy;
+        if (TextUtils.isEmpty(sortOrder)) {
+            orderBy = DBAdapter.DB_ID + " DESC";
+        } else {
+            orderBy = sortOrder;
+        }
+
+        SQLiteDatabase sqLiteDatabase = mDatabaseHelper.getReadableDatabase();
+        Cursor cursor = sqLiteQueryBuilder.query(sqLiteDatabase, null, null, null, null, null, orderBy);
+        cursor.setNotificationUri(getContext().getContentResolver(), uri);
+        return cursor;
+    }
+
+    @Override
+    public String getType(Uri uri) {
+        switch (URI_MATCHER.match(uri)) {
+            case WEIGHT:
+                return "something";
+
+            case WEIGHT_ID:
+                return "something";
+
+            default:
+                throw new IllegalArgumentException("Unknown URL " + uri);
+        }
     }
 
 }
