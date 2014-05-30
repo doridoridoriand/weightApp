@@ -14,7 +14,7 @@ import java.util.Date;
 public class DBAdapter {
 
     static final String DATABASE_NAME = "weight.db";
-    static finalk int DATABASE_VERSION = 1;
+    static final int DATABASE_VERSION = 1;
 
     public static final String TABLE_NAME = "weights";
     public static final String DB_ID = "_id";

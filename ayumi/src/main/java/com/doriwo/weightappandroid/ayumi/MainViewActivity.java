@@ -32,6 +32,13 @@ public class MainViewActivity extends Activity {
         tab2.setText("結果リスト表示");
         tab2.setTabListener(new WeightTabListener(mFragment2));
         mActionBar.addTab(tab2);
+
+        Fragment mFragment3 = new Fragment3();
+        ActionBar.Tab tab3 = mActionBar.newTab();
+        tab3.setText("グラフ表示");
+        tab3.setTabListener(new WeightTabListener(mFragment3));
+        mActionBar.addTab(tab3);
+
     }
 
 
@@ -53,5 +60,12 @@ class Fragment2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        return inflater.inflate(R.layout.fragment_item_list_activity, container, false);
+    }
+}
+
+class Fragment3 extends Fragment {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_graph_view_activity, container, false);
     }
 }
