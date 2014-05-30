@@ -18,7 +18,7 @@ import java.sql.SQLException;
 /**
  * Created by rpd on 14/05/30.
  */
-public class WeightProvider extends ContentProvider{
+public class WeightProvider extends ContentProvider {
 
     private static final int WEIGHT = 1;
     private static final int WEIGHT_ID = 2;
@@ -31,11 +31,11 @@ public class WeightProvider extends ContentProvider{
         URI_MATCHER.addURI("com.doriwo.weightappandroid.ayumi.provider.weight", "weight/#", WEIGHT_ID);
     }
 
-    private DatabaseHelper mDatabaseHelper;
+    private DBAdapter.DatabaseHelper mDatabaseHelper = new DBAdapter();
 
     @Override
     public boolean onCreate() {
-        mDatabaseHelper = new DatabaseHelper(getContext());
+        mDatabaseHelper = new DBAdapter.DatabaseHelper(getContext());
         return true;
     }
 

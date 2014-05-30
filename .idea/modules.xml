@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WeightAppAndroid.iml" filepath="$PROJECT_DIR$/WeightAppAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/ayumi/ayumi.iml" filepath="$PROJECT_DIR$/ayumi/ayumi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/weightapp_android.iml" filepath="$PROJECT_DIR$/weightapp_android.iml" />
     </modules>
   </component>
 </project>

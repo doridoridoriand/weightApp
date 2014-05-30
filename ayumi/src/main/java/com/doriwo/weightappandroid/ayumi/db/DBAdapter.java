@@ -30,13 +30,13 @@ public class DBAdapter {
         mDatabaseHelper = new DatabaseHelper(this.mContext);
     }
 
-    private static class DatabaseHelper extends SQLiteOpenHelper {
+    public static class DatabaseHelper extends SQLiteOpenHelper {
         public DatabaseHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }
 
         @Override
-        public void onCreate(SQLiteDatabase db) {
+        public synchronized void onCreate(SQLiteDatabase db) {
             String sqlstring = null;
             StringBuilder sqlset = new StringBuilder();
 
