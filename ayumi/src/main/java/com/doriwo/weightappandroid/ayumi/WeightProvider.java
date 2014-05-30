@@ -6,9 +6,9 @@ import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.text.TextUtils;
 
 import com.doriwo.weightappandroid.ayumi.db.DBAdapter;
-import com.doriwo.weightappandroid.ayumi.db.Weight;
 
 import java.sql.SQLException;
 
@@ -68,8 +68,8 @@ public class WeightProvider extends ContentProvider{
         switch (URI_MATCHER.match(uri)) {
             case WEIGHT:
                 count = db.delete(DBAdapter.TABLE_NAME, " " + DBAdapter.DB_ID + "like '%'", null);
-
             break;
+
             default:
                 throw new IllegalArgumentException("Unknown URL" + uri);
         }
@@ -81,7 +81,22 @@ public class WeightProvider extends ContentProvider{
     public int update(Uri uri, ContentValues values, String where, String[] whereArgs) {
 
         SQLiteDatabase db = mDatabaseHelper.getWritabledatabase();
-        int count
+        int count;
+        switch (URI_MATCHER.match(uri)) {
+            case WEIGHT:
+                count = db.update(DBAdapter.TABLE_NAME, values, where, whereArgs);
+                break;
+
+            case WEIGHT_ID:
+                String id = uri.getPathSegments().get(1);
+                count = db.update(DBAdapter.TABLE_NAME, values, DBAdapter.DB_ID + "=" + id +(!TextUtils.isEmpty(where) ? " AND (" + where + ')': ""), whereArgs);
+                break;
+
+            default:
+                throw new IllegalArgumentException("Unknown URL" + uri);
+        }
+        getContext().getContentResolver().notifyChange(uri, null);
+        return count;
     }
 
 }
