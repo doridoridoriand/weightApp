@@ -20,7 +20,6 @@ public class WeightProvider extends ContentProvider {
 
     private static final int WEIGHT = 1;
     private static final int WEIGHT_ID = 2;
-
     private static final UriMatcher URI_MATCHER;
 
     static {
