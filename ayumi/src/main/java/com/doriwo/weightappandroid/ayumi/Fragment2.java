@@ -11,12 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
-import com.doriwo.weightappandroid.ayumi.db.DBAdapter;
-import com.doriwo.weightappandroid.ayumi.db.Weight;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import com.doriwo.weightappandroid.ayumi.Weight;
 /**
  * Created by Dorian on 14/05/30.
  */
@@ -37,13 +35,9 @@ public class Fragment2 extends Fragment implements LoaderManager.LoaderCallbacks
         getLoaderManager().initLoader(0, null, this);
 
         String[] from = new String[]{
-                DBAdapter.DB_WEIGHT,
                 DBAdapter.DB_LASTUPDATE};
         int[] to = new int[]{
-                R.id.item_list_weight,
-                R.id.item_list_date
-
-        };
+                R.id.item_list_date};
 
         mSimpleCursorAdapter = new SimpleCursorAdapter(getActivity(), R.layout.item_list, null, from, to, SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
 
@@ -81,19 +75,18 @@ public class Fragment2 extends Fragment implements LoaderManager.LoaderCallbacks
             do {
                 Weight weight = new Weight();
                 weight.getId(cursor.getInt(0));
-                weight.getWeight(cursor.getString(1));
+                weight.getWeight(cursor.getInt(1));
                 weight.getLastupdate(cursor.getString(2));
                 mWeightList.add(weight);
             } while (cursor.moveToNext());
         }
     }
 
-    @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
+        @Override
+        public void onLoaderReset(Loader<Cursor> loader) {
         Cursor old = mSimpleCursorAdapter.swapCursor(null);
         if (old != null) {
             old.close();
         }
     }
-
 }

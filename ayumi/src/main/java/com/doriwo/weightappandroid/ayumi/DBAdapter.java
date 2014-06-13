@@ -1,4 +1,4 @@
-package com.doriwo.weightappandroid.ayumi.db;
+package com.doriwo.weightappandroid.ayumi;
 
 import android.content.ContentValues;
 import android.content.Context;

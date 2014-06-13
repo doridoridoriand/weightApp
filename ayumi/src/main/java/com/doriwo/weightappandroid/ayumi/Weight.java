@@ -1,19 +1,19 @@
-package com.doriwo.weightappandroid.ayumi.db;
+package com.doriwo.weightappandroid.ayumi;
 
 /**
  * Created by rpd on 14/05/30.
  */
 public class Weight {
-    int id;
-    String weight;
+    Integer id;
+    Integer weight;
     String lastupdate;
 
-    public Weight() {
-    }
+    //public Weight() {
+    //}
 
-    public Weight(int id, String weight, String lastupdate) {
-        this.id = id;
-        this.weight = weight;
+    public Weight(Integer id, Integer weight, String lastupdate) {
+        this.id = id.intValue();
+        this.weight = weight.intValue();
         this.lastupdate = lastupdate;
     }
 

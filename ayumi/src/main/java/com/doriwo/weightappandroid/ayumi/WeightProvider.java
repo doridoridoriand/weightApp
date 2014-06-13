@@ -11,8 +11,6 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.doriwo.weightappandroid.ayumi.db.DBAdapter;
-
 import java.sql.SQLException;
 
 /**
@@ -31,7 +29,7 @@ public class WeightProvider extends ContentProvider {
         URI_MATCHER.addURI("com.doriwo.weightappandroid.ayumi.provider.weight", "weight/#", WEIGHT_ID);
     }
 
-    private DBAdapter.DatabaseHelper mDatabaseHelper = new DBAdapter();
+    private DBAdapter.DatabaseHelper mDatabaseHelper = new DBAdapter.DatabaseHelper();
 
     @Override
     public boolean onCreate() {
@@ -83,7 +81,7 @@ public class WeightProvider extends ContentProvider {
     @Override
     public int update(Uri uri, ContentValues values, String where, String[] whereArgs) {
 
-        SQLiteDatabase db = mDatabaseHelper.getWritabledatabase();
+        SQLiteDatabase db = mDatabaseHelper.getWritableDatabase();
         int count;
         switch (URI_MATCHER.match(uri)) {
             case WEIGHT:
