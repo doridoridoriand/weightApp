@@ -3,7 +3,7 @@
     tools:context="com.doriwo.weightappandroid.ayumi.MainViewActivity" >
     
     <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+        android:title="設定"
         android:orderInCategory="100"
         android:showAsAction="never" />
 </menu>

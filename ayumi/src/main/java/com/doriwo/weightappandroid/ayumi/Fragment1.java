@@ -1,17 +1,10 @@
 package com.doriwo.weightappandroid.ayumi;
 
 import android.app.Fragment;
-import android.app.LoaderManager;
-import android.content.Loader;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.doriwo.weightappandroid.ayumi.db.Weight;
-
-import java.util.List;
 
 /**
  * Created by rpd on 14/05/30.
