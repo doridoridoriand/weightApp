@@ -41,7 +41,7 @@ public class Fragment2 extends Fragment implements LoaderManager.LoaderCallbacks
 
         mSimpleCursorAdapter = new SimpleCursorAdapter(getActivity(), R.layout.item_list, null, from, to, SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
 
-        ListView listView = (listView) getView().findViewById(R.id.item_list_view);
+        ListView listView = (ListView) getView().findViewById(R.id.item_list_view);
         listView.setAdapter(mSimpleCursorAdapter);
 
 //     アイテムが押下されたときに対する反応を実装する予定は今はなし。そのうち論理削除を導入。
