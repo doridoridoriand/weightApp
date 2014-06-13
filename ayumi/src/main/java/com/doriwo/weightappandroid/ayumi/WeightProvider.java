@@ -29,7 +29,7 @@ public class WeightProvider extends ContentProvider {
         URI_MATCHER.addURI("com.doriwo.weightappandroid.ayumi.provider.weight", "weight/#", WEIGHT_ID);
     }
 
-    private DBAdapter.DatabaseHelper mDatabaseHelper = new DBAdapter.DatabaseHelper();
+    private DBAdapter.DatabaseHelper mDatabaseHelper = new DBAdapter.DatabaseHelper(getContext());
 
     @Override
     public boolean onCreate() {
@@ -54,7 +54,7 @@ public class WeightProvider extends ContentProvider {
         long rowID = db.replace("weight", "NULL", values);
 
         if (rowID > 0) {
-            Uri newUri = ContentUris.withAppendedId("content://com.doriwoweightappandroid.ayumi.provider.weight/weight", rowID);
+           Uri newUri = ContentUris.withAppendedId("content://com.doriwoweightappandroid.ayumi.provider.weight/weight", rowID);
             getContext().getContentResolver().notifyChange(newUri, null);
             return newUri;
         }

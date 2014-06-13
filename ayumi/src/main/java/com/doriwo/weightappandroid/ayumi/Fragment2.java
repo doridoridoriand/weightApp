@@ -74,9 +74,9 @@ public class Fragment2 extends Fragment implements LoaderManager.LoaderCallbacks
         if (cursor.moveToFirst()) {
             do {
                 Weight weight = new Weight();
-                weight.getId(cursor.getInt(0));
-                weight.getWeight(cursor.getInt(1));
-                weight.getLastupdate(cursor.getString(2));
+                weight.get_id(cursor.getInt(0));
+                weight.get_weightmass(cursor.getInt(1));
+                weight.get_lastupdate(cursor.getString(2));
                 mWeightList.add(weight);
             } while (cursor.moveToNext());
         }
