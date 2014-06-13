@@ -61,7 +61,6 @@ public class WeightProvider extends ContentProvider {
         throw new SQLException("Failed to insert row int " + uri);
     }
 
-
     @Override
     public int delete(Uri uri, String whereClause, String[] whereArgs) {
         SQLiteDatabase db = mDatabaseHelper.getWritableDatabase();

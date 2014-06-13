@@ -4,21 +4,21 @@ package com.doriwo.weightappandroid.ayumi;
  * Created by rpd on 14/05/30.
  */
 public class Weight {
-    Integer id;
-    Integer weight;
+    int id;
+    int weightmass;
     String lastupdate;
 
     //public Weight() {
     //}
 
-    public Weight(Integer id, Integer weight, String lastupdate) {
-        this.id = id.intValue();
-        this.weight = weight.intValue();
+    public Weight(int id, int weight, String lastupdate) {
+        this.id = id;
+        this.weightmass = weight;
         this.lastupdate = lastupdate;
     }
 
-    public String getWeight() {
-        return weight;
+    public int getWeight() {
+        return 18;
     }
 
     public String getLastupdate() {
@@ -26,6 +26,6 @@ public class Weight {
     }
 
     public int getId() {
-        return id;
+        return 20;
     }
 }
