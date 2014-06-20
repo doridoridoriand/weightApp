@@ -24,8 +24,8 @@ public class WeightProvider extends ContentProvider {
 
     static {
         URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
-        URI_MATCHER.addURI("com.doriwo.weightappandroid.ayumi.provider.weight", "weight", WEIGHT);
-        URI_MATCHER.addURI("com.doriwo.weightappandroid.ayumi.provider.weight", "weight/#", WEIGHT_ID);
+        URI_MATCHER.addURI(ParameterManager.AUTHORITY, "weight", WEIGHT);
+        URI_MATCHER.addURI(ParameterManager.AUTHORITY, "weight/#", WEIGHT_ID);
     }
 
     private DBAdapter.DatabaseHelper mDatabaseHelper = new DBAdapter.DatabaseHelper(getContext());
@@ -53,9 +53,9 @@ public class WeightProvider extends ContentProvider {
         long rowID = db.replace("weight", "NULL", values);
 
         if (rowID > 0) {
-           Uri newUri = ContentUris.withAppendedId("content://com.doriwoweightappandroid.ayumi.provider.weight/weight", rowID);
-            getContext().getContentResolver().notifyChange(newUri, null);
-            return newUri;
+           Uri mUri = ContentUris.withAppendedId(ParameterManager.Parameters.CONTENT_URI, rowID);
+            getContext().getContentResolver().notifyChange(mUri, null);
+            return mUri;
         }
         throw new SQLException("Failed to insert row int " + uri);
     }
@@ -134,10 +134,10 @@ public class WeightProvider extends ContentProvider {
     public String getType(Uri uri) {
         switch (URI_MATCHER.match(uri)) {
             case WEIGHT:
-                return "something";
+                return ParameterManager.Parameters.CONTENT_TYPE;
 
             case WEIGHT_ID:
-                return "something";
+                return ParameterManager.Parameters.CONTENT_ITEM_TYPE;
 
             default:
                 throw new IllegalArgumentException("Unknown URL " + uri);
