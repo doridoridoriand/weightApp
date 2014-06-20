@@ -8,13 +8,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.doriwo.weightappandroid.ayumi.Weight;
 /**
  * Created by Dorian on 14/05/30.
  */
@@ -45,12 +44,17 @@ public class Fragment2 extends Fragment implements LoaderManager.LoaderCallbacks
         listView.setAdapter(mSimpleCursorAdapter);
 
 //   アイテムが押下されたときに対する反応を実装する予定は今はなし。そのうち論理削除を導入。
-//        listView.setOnClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//               replaceFragment(position);
-//            }
-//        });
+        listView.setOnClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               replaceFragment(position);
+            }
+        });
+    }
+
+    private void replaceFragment(int position) {
+
+
     }
 
     @Override
